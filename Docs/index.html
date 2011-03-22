@@ -1,0 +1,258 @@
+<a name="top" class="smoothscroll"><h1>Password Strength Meter</h1></a>
+
+<a name="description" class="smoothscroll"><h2>Description</h2></a>
+
+<p>Password Srength Meter is a JavaScript password strength checker based on MooTools 1.3. It aims to provide simple, reliable password strength indications across all browsers in an unobtrusive manner. It is 100% styled by CSS and allows for custom validations. It can be used with effects or without and has an optional text component that changes with each change of state. The text defaults to 'Poor', 'Weak', 'Medium', and 'Strong'; but it can be changed according to preference or language.</p>
+
+<a name="contents" class="smoothscroll"><h2>Contents</h2></a>
+
+<ul>
+	<li><a href="#description">Description</a></li>
+	<li><a href="#contents">Contents</a></li>
+	<li><a href="#demos">Demos</a></li>
+	<li><a href="#license">License</a></li>
+	<li><a href="#features">Features</a></li>
+	<li><a href="#dependencies">Dependencies</a></li>
+	<li><a href="#tutorial">A Quick Tutorial</a></li>	
+	<li><a href="#documentation">Documentation</a></li>
+</ul>
+
+<a name="demos" class="smoothscroll"><h2>Demos</h2></a>
+
+<ul>
+	<li><a href="">Password Meter with effects</a></li>
+	<li><a href="">Password Meter without effects</a></li>
+	<li><a href="">Inject below a different element</a></li>
+	<li><a href="">CSS Styling</a></li>
+	<li><a href="">Vertical Meter</a></li>
+	<li><a href="">Multiple meters</a></li>
+	<li><a href="">Fancy meter</a></li>
+</ul>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>
+
+<a name="license" class="smoothscroll"><h2>License</h2></a>
+
+<p>Password Srength Meter is released under the open-source <a href="http://www.opensource.org/licenses/mit-license.php" rel="nofollow">MIT License</a>.</p>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>
+
+<a name="features" class="smoothscroll"><h2>Features</h2></a>
+
+<ul>
+	<li>Simple out of the box</li>
+	<li>Unobtrusive - requires no changes to existing (X)HTML markup</li>
+	<li>Degrades gracefully</li>
+	<li>Cross browser - tested in Internet Explorer 6+, Firefox, Safari, Opera, and Chrome</li>
+	<li>Customizable styling - 100% CSS styling.</li>
+	<li>21 configurable options </li>
+	<li>Customizable text - The optional text can be changed according to preference or language.</li>
+	<li>Customizable positioning - you can change which element the password meter is injected after.</li>
+	<li>Customizable and optional effects</li>
+	<li>4.4kb uncompressed, 2.4kb compressed</li>
+</ul>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>
+
+<a name="dependencies" class="smoothscroll"><h2>Dependencies</h2></a>
+
+<p>Password Srength Meter requires the <a href="http://mootools.net" rel="nofollow">MooTools JavaScript framework</a>. Specifically, it requires the complete <a href="http://mootools.net/core" rel="nofollow">MooTools Core</a> (but not <a href="http://mootools.net/more" rel="nofollow">MooTools More</a>) file.</p>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>
+
+<a name="tutorial" class="smoothscroll"><h2>A Quick Tutorial</h2></a>
+
+<p>Let's build a quick registration form and use the password meter with it. Password Srength Meter requires the MooTools library, so we'll need to download the entire <a href="http://mootools.net/core" rel="nofollow">MooTools 1.2 Core file</a>. Go download it quickly if you don't already have it. Don't forget to download a copy of Password Strength Meter as well.</p>
+
+<p>If you're new to JavaScript (or MooTools), you'll find the implementation of Password Strength Meter fairly easy. Password Strength Meter requires no changes to your form whatsoever; it works with what you already have. We'll start with constructing our HTML form. For this basic registration form, we're only going to use 4 fields: username, password, passwordConfirm, and email.</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;<br />&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;<br />&lt;head&gt;<br />&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=iso-8859-1&quot; /&gt;<br />&lt;title&gt;vmValidatorTutorial&lt;/title&gt;<br />&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;form id="registration" method="post" action=""&gt;
+		&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+		&lt;input id="username" name="username" type=&quot;text&quot; /&gt;
+		&lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+		&lt;input id=&quot;password&quot; name=&quot;password&quot; type=&quot;password&quot; /&gt;
+		&lt;label for=&quot;confirmPassword&quot;&gt;Confirm Password&lt;/label&gt;
+		&lt;input id=&quot;confirmPassword&quot; name=&quot;confirmPassword&quot; type=&quot;password&quot; /&gt;
+		&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+		&lt;input id=&quot;email&quot; name=&quot;email&quot; type=&quot;text&quot; /&gt;
+		&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+	&lt;/form&gt;
+&lt;/body&gt;<br />&lt;/html&gt;
+</pre>
+
+<p>That was pretty easy, right? Let's go ahead and add just a little CSS styling to make our form look better (though we won't go overboard). For this tutorial, we're just going to put it in the head of our XHTML document, but in practice we recommend putting in your stylesheet in a separate file.</p>
+
+<pre>
+&lt;style type=&quot;text/css&quot;&gt;
+	input, label, #container {float:left; clear:left;}
+&lt;/style&gt;
+</pre>
+
+<p>Next we need to add our JavaScript files, MooTools1.3-core.js and password-strength-meter.js. We'll put those in the document head as well.</p>
+
+<pre>
+&lt;script type=&quot;text/javascript&quot; src=&quot;mootools-1.3-core.js&quot;&gt;&lt;/script&gt;<br />&lt;script src=&quot;password-strength-meter.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</pre>
+
+<p>Now we need to add a little bit of MooTools specific JavaScript. MooTools has a special event called 'domready' that executes whenever the HTML has finished loading. Most MooTools scripts are at least partially executed from within the 'domready' event. Again, we're just going to put this code in the document head, but it could also be in its own file.</p>
+
+<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	window.addEvent('domready', function(){
+		//Our Password Strength Meter code will go here
+	});
+&lt;/script&gt;
+</pre>
+
+<p>All of our  code is going to be inserted into the 'domready' event, right where the comment currently is. The first thing we'll need to do is initialize the Password Strength Meter class. In this case, we'll use the variable <em>password</em>, but you can use <em>pass</em>, or <em>bob</em>, or whatever you like. We'll set<em>password</em>equal to a new instance of PassMeter. Because the constructor for the PassMeter class has one required argument, the name of the password form element, we're going to enter in the name  'password', surrounded in quotes to make it a string.</p>
+
+<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	window.addEvent('domready', function(){
+		var form = new PassMeter('password');
+	});
+&lt;/script&gt;
+</pre>
+
+<p>The constructor for PassMeter also has an optional argument for options, but we'll cover that a little later. Next, we're going to add just a little more CSS styling to make our password strength meter visible. There are seven different elements that we can style. The container, the meter, the text are all elements styled by ids. The meter element also has a class of either <em>poorPass</em>, <em>weakPass</em>, <em>mediumPass</em>, and <em>strongPass</em>, which represent the different states of the meter. We're going to add to the following lines to our CSS code:</p>
+
+<pre>
+&lt;style type=&quot;text/css&quot;&gt;
+	label, input, #containerId {float:left; clear:both;}
+	#containerId, #meterId{display:block; height:25px; line-height:25px;}
+	#containerId {width:200px; background:#CCCCCC; margin:10px 0px; padding:0px;}
+	.poorPass {width:50px; background:#FF0000;}
+	.weakPass {width:100px; background:#FF9900;}
+	.mediumPass {width:150px; background:#FFFF00;}
+	.strongPass {width:200px; background:#006600;}
+&lt;/style&gt;</pre>
+
+<p>Go ahead and try out your script now. It should have the password meter appearing below your password input. If you type at least six characters with at least one uppercase and one lowercase letter, your meter should change from 'poor' to 'weak'. If you add a number, it should change to 'medium' and if you add any character that isn't alphanumeric (like the @ symbol), it should change to 'strong'. If there are any problems, check to make sure that the paths to your javascript files are correct and that the password name is entered in string format. </p>
+
+<p>Now that we've covered some of the basic CSS, let's dive into the options. Beyond what you can do with CSS, Password Strength Meter has 21 different configurable options, but don't let that intimidate you. It's designed to work well out of the box, so that you just have to provide the CSS styling for it. If you want to change an option, you only have to change that option and you can leave the rest of them alone. First, let's make some adjustments to the default text of 'Poor', 'Weak', 'Medium', and 'Strong' by changing them to 'Stinky', 'Wimpy', 'Mediocre', and 'Superman'. To do that, we'll have to use the option variables of <em>poorText</em>, <em>weakText</em>, <em>mediumText</em>, and <em>strongText</em> and assign our new values to them. The optional argument is inserted after the password name argument. Because the optional argument accepts more than one option, we need to enclose it in an object. That simply means we'll put curly braces {} around our entire set of options. Each option has two parts: the option name and its value, which are separated by a colon. If you have more than one option, each option should be separated by a comma, except the last one. Sound complicated? It's actually easier than it sounds. Let's take a look at an example:</p>
+
+<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+	window.addEvent('domready', function(){
+		var form = new PassMeter('password', {
+			poorText: 'Stinky',
+			weakText: 'Wimpy',
+			mediumText: 'Mediocre',
+			strongText: 'Superman'
+		});
+	});
+&lt;/script&gt;</pre>
+
+<p>That's all there is to it! Try entering your password again and you'll see the new text. We could stop there, but I'll show you just a few more things Password Strength Meter can do.</p>
+
+<p> The default CSS class names Password Strength Meter uses are <em>.poorPass</em>, <em>.weakPass</em>, <em>.mediumPass</em>, and <em>.strongPass</em>. The default ids are <em>#containerId</em>, <em>#meterId</em>, and <em>#textId</em>. If you need to change those for any reason, you can do so just by setting the new class or id name in the options. The class variables are called <em>poorClass</em>, <em>weakClass</em>, <em>mediumClass</em>, and <em>strongClass</em> and the ids are called <em>containerId</em>, <em>meterId</em>, and <em>textId</em>. The new names should be entered as a string, but you <strong>shouldn't</strong> add the period or pound sign before them, the script takes care of that for you.</p>
+
+<p>The <em>injectAfter</em> option allows you to specify which form element you would like to inject the password meter after, if you want to inject it after something other than your first password input. For instance, if you wanted to inject the meter after the confirm password input, we would set the value for <em>injectAfter</em> as 'confirmPassword', which is the name of that input element. Or, if we wanted to inject it above the password input, we could enter in 'username' instead.</p>
+
+<p>You can also choose whether or not you want to use the text or the effects by setting the <em>useText</em> and <em>useFx</em> options to either <em>true</em> or <em>false</em>. You can also control the duration of the transition effect as well as the effect itself. The <em>duration</em> is set in milliseconds, with a default of 250 milliseconds. The <em>transition</em> corresponds to the MooTools Fx transitions, which you can learn more about <a href="http://docs.mootools.net/Fx/Fx.Transitions" rel="nofollow">here</a>. The default transition is Fx.Transitions.Sine.easeOut. It's important to note that the options discussed in this paragraph should not be entered in as a string, but as true, false, a number, or the transition type.</p>
+
+<p>In addition to changing the style of Password Strength Meter, you can also change its behavior. You can specify the minimum length of the password using <em>minLength</em> and the maximum length using <em>maxLength</em>. The values for <em>minLength</em> and <em>maxLength</em> should be whole numbers.</p> 
+
+<p>If you're familiar with regular expressions, you can also set custom expressions to be evaluated over the default expressions. By default, Password Strength Meter has five types of validations: the minimum and maximum length (discussed above), and three regular expressions. If the minimum and maximum lengths are both satisified, Password Strength Meter will check to see if at least one uppercase and one lowercase letter have been used, if a number has been used, and if a special (non alphanumeric) character has been used. If only one of those checks is satisfied, the password will evaluate as weak; if two are satisfied, it will evaluate as medium; and if all three are satisfied, it will evaluate as strong.</p>
+
+<p>To use custom regular expressions, enter the full expression as a string value for one or more of the following variables: <em>weakRegEx</em>, <em>mediumRegEx</em>, and <em>strongRegEx</em>. The default value for <em>weakRegEx</em> validates the upper and lowercase letters; <em>mediumRegex</em> validates the numbers, and <em>strongRegEx</em> validates special characters. You should note, however, that entering a custom regular expression as a value for <em>weakRegex</em> doesn't mean that it is the only way for a 'weak' password to be obtained because Password Strength Meter shows the weak status if only one of the regular expressions has been satisfied. Thus, a weak status could also be obtained if either the <em>mediumRegex</em> or <em>strongRegex</em> has been satisfied, but the others have not.</p>
+
+<p>If you're not familiar with regular expressions or if you need a good reference, I recommend both the <a href="http://regexlib.com/" rel="nofollow">Regex Library</a> and the page detailing JavaScript-specific regular expression rules at <a href="http://www.regular-expressions.info/javascript.html" rel="nofollow">http://www.regular-expressions.info/javascript.html</a>.</p>
+
+<p>This concludes our quick tutorial. If you encounter a bug, have a question or comment, feel free to contact us. We'd also love to know if you're using it on your site. If you liked Password Strength Meter, tell someone else about it. Thanks, and enjoy!</p>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>
+
+<a name="documentation" class="smoothscroll">
+<h2>Documentation</h2></a>
+
+<a name="passMeter" class="smoothscroll"><h2>Class: PassMeter</h2></a>
+
+<p>This class is for evaluating the strength of a password by using a CSS-styled visual meter and/or text.</p> 
+
+<h3>Implements:</h3>
+
+<ul>
+	<li><a href="http://docs.mootools.net/Class/Class.Extras#Events" rel="nofollow">Events</a>, <a href="http://docs.mootools.net/Class/Class.Extras#Options" rel="nofollow">Options</a>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+	<li>If you are using a single CSS sprite as background images for your password meter, it's recommended to turn the effects off as the resulting animation may not be what you desire. If you still wish to keep the animation, the only alternative option is to use multiple images.</li>
+</ul>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>
+
+<a name="constructor" class="smoothscroll"><h2>PassMeter Method: constructor</h2></a>
+
+<p>Password Strength Meter is completely unobtrusive and requires no changes to existing markup.</p>
+
+<h3>Syntax:</h3>
+
+<pre>
+var password = new PassMeter(passwordFieldName[, options]);
+</pre>
+
+<h3>Arguments:</h3>
+
+<ol>
+	<li>passwordFieldName - (<em>string</em>) The name of the password form element on which validation should be performed.</li>
+	<li>options - (<em>object</em>, optional) Any of the options below.</li>
+</ol>
+
+<h4>Options:</h4>
+
+<ul>
+	<li>injectAfter - (<em>string</em>, defaults to null) The name of the form element after which the password meter should be injected.</li>
+	<li>minLength - (<em>integer</em>, defaults to 6) The minimum length of the password.</li>
+	<li>maxLength - (<em>integer</em>, defaults to 15) The maximum length of the password.</li>
+	<li>useFx - (<em>boolean</em>, defaults to true) If the animation effects should be used.</li>
+	<li>transition - (<em>function</em>, defaults to Fx.Transitions.Sine.easeOut) The type of transition to be used in the animation. Uses <a href="http://docs.mootools.net/Fx/Fx.Transitions" rel="nofollow">Fx.Transitions</a>.</li>
+	<li>duration - (<em>integer</em>, defaults to 250) The duration of the animation transition in milliseconds.</li>
+	<li>containerId - (<em>string</em>, defaults to 'containerId') The id of the containing element for the password meter.</li>
+	<li>meterId - (<em>string</em>, defaults to 'meterId') The id of the containing element for the password meter.</li>
+	<li>poorClass - (<em>string</em>, defaults to 'poorPass') The class for a poor password element.</li>
+	<li>weakClass - (<em>string</em>, defaults to 'weakPass') The class for a weak password element.</li>
+	<li>mediumClass - (<em>string</em>, defaults to 'mediumPass') The class for a medium password element.</li>
+	<li>strongClass - (<em>string</em>, defaults to 'strongPass') The class for a strong password element.</li>
+	<li>textId - (<em>string</em>, defaults to 'textId') The id of the containing element for the text status message.</li>	
+	<li>useText - (<em>boolean</em>, defaults to true) If the text password status messages should be used.</li>
+	<li>poorText - (<em>string</em>, defaults to 'Poor') The text to be used for a poor password element.</li>
+	<li>weakText - (<em>string</em>, defaults to 'Weak') The text to be used for a weak password element.</li>
+	<li>mediumText - (<em>string</em>, defaults to 'Medium') The text to be used for a medium password element.</li>
+	<li>strongText - (<em>string</em>, defaults to 'Strong') The text to be used for a strong password element.</li>						
+	<li>weakRegEx - (<em>string</em>, defaults to '([a-z]{1}[A-Z]{1})|([A-Z]{1}[a-z]{1})[^\s]') The regular expression to be used for a weak password element. The default weak regex tests that at least one uppercase and one lowercase letter has been used.</li>
+	<li>mediumRegEx - (<em>string</em>, defaults to '[0-9]{1}') The regular expression to be used for a medium password element. The default medium regex tests that at least one number has been used.</li>
+	<li>strongRegEx - (<em>string</em>, defaults to '[^a-zA-Z0-9]{1}') The regular expression to be used for a strong password element. The default strong regex tests that at least one special (non-alphanumeric) character has been used.</li>								
+</ul>
+
+<h3>Example:</h3>
+
+<pre>
+window.addEvent('domready', function(){
+	var password = new PassMeter('password', {
+			poorText: 'Stinky',
+			weakText: 'Wimpy',
+			mediumText: 'Mediocre',
+			strongText: 'Superman'
+			poorClass: 'stinky',
+			weakClass: 'wimpy',
+			mediumClass: 'mediocre',
+			strongClass: 'superman'					
+	});
+});
+</pre>
+
+<h3>Further JavaScript Regular Expression Resources:</h3>
+
+<ul>
+	<li><a href="http://www.regular-expressions.info/javascript.html" rel="nofollow">http://www.regular-expressions.info/javascript.html</a> - Specifics of writing regular expressions for JavaScript.</li>
+	<li><a href="http://regexlib.com/" rel="nofollow">http://regexlib.com/</a> - A regular expression library. Be sure to check out their cheat sheet.</li>
+</ul>
+
+<p><a href="#top">Top</a> | <a href="#contents">Contents</a></p>

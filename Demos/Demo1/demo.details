@@ -1,0 +1,9 @@
+---
+ name: User Registration
+ description: A password strength meter demo
+ authors:
+   - Virtuosi Media  
+ resources:
+   - https://github.com/VirtuosiMedia/Password-Strength-Meter/raw/master/Source/password-strength-meter.js
+ normalize_css: no
+ ...
