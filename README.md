@@ -1,4 +1,4 @@
-VM Form Validator
+Password Srength Meter
 ===========
 
 Password Srength Meter is a JavaScript password strength checker based on MooTools 1.3. It aims to provide simple, reliable password strength indications across all browsers in an unobtrusive manner. It is 100% styled by CSS and allows for custom validations. It can be used with effects or without and has an optional text component that changes with each change of state. The text defaults to 'Poor', 'Weak', 'Medium', and 'Strong'; but it can be changed according to preference or language.
