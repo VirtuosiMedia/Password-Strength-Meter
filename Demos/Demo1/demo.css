@@ -1,4 +1,4 @@
-body {height:300px; margin:0px; padding:0px; font-size:18px; background:#555; background:-moz-linear-gradient(top, #666 0%, #333 36%, #000 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#666), color-stop(36%,#333), color-stop(100%,#000));}
+body {height:400px; margin:0px; padding:0px; font-size:18px; background:#555; background:-moz-linear-gradient(top, #666 0%, #333 36%, #000 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#666), color-stop(36%,#333), color-stop(100%,#000));}
 label, input, #containerId {float:left; clear:both; margin:10px 0px 0px 20px;}
 label {font-weight:bold; color:#FFF; text-shadow:#000 -1px -1px 0px;}
 input {height:25px; line-height:25px; width:200px; border:1px solid; border-color:#000 #666 #666 #000; -moz-border-radius:10px; border-radius:10px; text-indent:4px; outline:none; -webkit-box-shadow: inset 2px 2px 5px #999; -moz-box-shadow: inset 2px 2px 5px #999; box-shadow: inset 2px 2px 5px #999;}
