@@ -2,7 +2,7 @@ Password Srength Meter
 ===========
 
 Password Srength Meter is a JavaScript password strength checker based on MooTools 1.3. It aims to provide simple, reliable password strength indications across all browsers in an unobtrusive manner. It is 100% styled by CSS and allows for custom validations. It can be used with effects or without and has an optional text component that changes with each change of state. The text defaults to 'Poor', 'Weak', 'Medium', and 'Strong'; but it can be changed according to preference or language.
-You can find a [full tutorial](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/password-strength-meter/tutorial), the full [API docs](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/password-strength-meter/api-documentation), and [demos](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/password-strength-meter/demos) at the [Virtuosi Media website](http://www.virtuosimedia.com/).
+You can find a [full tutorial](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/password-strength-meter/tutorial), the full [API docs](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/password-strength-meter/api-documentation), and [demos](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/password-strength-meter/demos) at the [Virtuosi Media website](http://www.virtuosimedia.com/). Also, be sure to check out the rest of our [MooTools plugins](http://www.virtuosimedia.com/dev/javascript/mootools-plugins/).
 
 ![Screenshot](https://github.com/VirtuosiMedia/Password-Strength-Meter/raw/master/password-strength-checker.png)
 
